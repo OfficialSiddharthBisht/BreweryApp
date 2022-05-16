@@ -17,11 +17,36 @@ function displayBrewery(breweries){
         let breweryName = document.createElement("td");
         let breweryid = document.createElement("td");
         let breweryType = document.createElement("td");
+        let city = document.createElement("td");
+        let state = document.createElement("td");
+        let moreDetails = document.createElement("button");
 
         breweryName.innerText = brewery.name;
         breweryid.innerText = brewery.id;
         breweryType.innerText = brewery.brewery_type;
-        breweryCard.append(breweryName ,breweryType);
+        city.innerText = brewery.city;
+        state.innerText = brewery.state;
+        let id = brewery.id;
+        moreDetails.addEventListener('click',(id)=>{
+            console.log("working");
+            let newUrl = `https://api.openbrewerydb.org/breweries/${id}`;
+            document.location.href = "../individualBrewery.html";
+            fetch(newUrl)
+            .then((response)=>{
+                return response.json();
+            })
+            .then((response)=>{
+                displayIndividualBrewery(response);
+            })
+            .catch((error)=>{
+                console.log(error);
+            })
+        });
+        moreDetails.innerText = "More Details"
+        breweryCard.append(breweryName ,breweryType,city ,state,moreDetails);
         container.append(breweryCard);
     });
+}
+function displayIndividualBrewery(brewery){
+    console.log(brewery);
 }
