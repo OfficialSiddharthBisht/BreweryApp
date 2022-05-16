@@ -27,14 +27,15 @@ function displayBrewery(breweries){
         city.innerText = brewery.city;
         state.innerText = brewery.state;
         let id = brewery.id;
-        moreDetails.addEventListener('click',(id)=>{
+        moreDetails.addEventListener('click',()=>{
             let newUrl = `https://api.openbrewerydb.org/breweries/${id}`;
             fetch(newUrl)
             .then((response)=>{
                 return response.json();
             })
             .then((response)=>{
-                displayIndividualBrewery(response);
+                // console.log(response);
+                displayIndividualBrewery(response.id);
             })
             .catch((error)=>{
                 console.log(error);
@@ -46,7 +47,6 @@ function displayBrewery(breweries){
     });
 }
 function displayIndividualBrewery(brewery){
-    setTimeout((function(){
+        localStorage.setItem("id",JSON.stringify(brewery));
         document.location.href = "../individualBrewery.html";
-    }),5000);
-}
+    }
