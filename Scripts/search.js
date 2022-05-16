@@ -26,6 +26,7 @@ function displayInCard(data){
         let city = document.createElement("p");
         let state = document.createElement("p");
         let moreDetails = document.createElement("button");
+        let id = element.id;
         moreDetails.innerHTML = "More Details"
         name.innerText = element.name;
         breweryType.innerText = element.brewery_type;
@@ -35,7 +36,8 @@ function displayInCard(data){
         card.append(name,breweryType,city,state,moreDetails);
         container.append(card);
         moreDetails.addEventListener('click',()=>{
-            window.location.href = "../individualBrewery.html";
+                localStorage.setItem("id",JSON.stringify(id));
+                document.location.href = "../individualBrewery.html";
         })
     });
 }
