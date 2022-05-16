@@ -1,3 +1,12 @@
 header .navbar{
-    background-color: rgb(64, 62, 62);
+    background-color: rgb(143, 138, 138);
+    padding: 8px;
+}
+header .navbar ul {
+    list-style: none;
+    display: flex;
+    justify-content: space-around;
+}
+header .navbar ul li a{
+    text-decoration: none;
 }
