@@ -1,4 +1,5 @@
 let id = JSON.parse(localStorage.getItem("id"));
+console.log(id);
 let url = `https://api.openbrewerydb.org/breweries/${id}`;
 fetch(url)
 .then((response)=>{
