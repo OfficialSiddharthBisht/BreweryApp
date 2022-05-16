@@ -25,12 +25,17 @@ function displayInCard(data){
         let breweryType = document.createElement("p");
         let city = document.createElement("p");
         let state = document.createElement("p");
+        let moreDetails = document.createElement("button");
+        moreDetails.innerHTML = "More Details"
         name.innerText = element.name;
         breweryType.innerText = element.brewery_type;
         city.innerText = element.city;
         state.innerText = element.state;
         card.setAttribute('id',card);
-        card.append(name,breweryType,city,state);
+        card.append(name,breweryType,city,state,moreDetails);
         container.append(card);
+        moreDetails.addEventListener('click',()=>{
+            window.location.href = "../individualBrewery.html";
+        })
     });
 }

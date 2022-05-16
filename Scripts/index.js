@@ -28,9 +28,7 @@ function displayBrewery(breweries){
         state.innerText = brewery.state;
         let id = brewery.id;
         moreDetails.addEventListener('click',(id)=>{
-            console.log("working");
             let newUrl = `https://api.openbrewerydb.org/breweries/${id}`;
-            document.location.href = "../individualBrewery.html";
             fetch(newUrl)
             .then((response)=>{
                 return response.json();
@@ -48,5 +46,7 @@ function displayBrewery(breweries){
     });
 }
 function displayIndividualBrewery(brewery){
-    console.log(brewery);
+    setTimeout((function(){
+        document.location.href = "../individualBrewery.html";
+    }),5000);
 }
